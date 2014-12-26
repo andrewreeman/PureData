@@ -1,0 +1,130 @@
+#N canvas 55 24 1311 718 12;
+#X obj 101 101 cnv 15 555 600 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 288 590 tgl 15 0 empty ot empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X text 316 585 Overtones in goal synth on/off;
+#X obj 288 611 tgl 15 0 empty ot empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 328 97 s tones-g;
+#X text 314 610 Overtones in user synth on/off;
+#X obj 392 356 s tones-u;
+#X obj 619 135 vsl 30 300 0 1 0 0 empty empty empty 0 -9 0 10 -261234
+-4034 -1 20310 1;
+#N canvas 0 42 1366 726 win-count 0;
+#X obj 660 145 r win;
+#X obj 668 223 cup;
+#X obj 534 405 s score;
+#X obj 865 164 r lb1;
+#X msg 837 211 1;
+#X obj 676 56 r lose;
+#X obj 652 431 outlet;
+#X msg 735 172 1;
+#X msg 563 247 0;
+#X obj 583 351 * 1000;
+#X obj 785 116 r start;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 1 0 9 0;
+#X connect 3 0 4 0;
+#X connect 3 0 8 0;
+#X connect 4 0 1 0;
+#X connect 5 0 7 0;
+#X connect 5 0 8 0;
+#X connect 7 0 1 0;
+#X connect 8 0 2 0;
+#X connect 9 0 2 0;
+#X connect 10 0 7 0;
+#X restore -115 330 pd win-count;
+#X obj 285 235 nbx 15 50 -1e+37 1e+37 0 0 (UNUSED) score empty 0 -8
+1 14 -262130 -258113 -1 0 256 0;
+#X obj 206 507 bng 35 250 50 0 open-freq empty Change_freq -30 -12
+0 14 -135154 -1 -1;
+#N canvas 420 190 309 102 freq 0;
+#X obj 4 3 hsl 300 50 100 300 0 0 newf user-freq Change_Frequency_Here!
+15 18 0 16 -204800 -4160 -258113 0 1;
+#X obj 2 56 bng 35 250 50 0 close-freq click DONE! 45 14 0 16 -204786
+-260097 -258113;
+#X restore -123 415 pd freq;
+#N canvas 0 42 1311 718 freq-internal 0;
+#X obj 444 4 r open-freq;
+#X msg 453 172 \; pd-freq vis 1 \,;
+#X obj 570 -2 r close-freq;
+#X msg 587 45 \; pd-freq vis 0 \,;
+#X text 518 106 first \, due to mouse click ... it will 'close-freq'.
+;
+#X obj 448 96 del 100;
+#X connect 0 0 5 0;
+#X connect 2 0 3 0;
+#X connect 5 0 1 0;
+#X restore -124 442 pd freq-internal;
+#X obj 117 126 vsl 30 300 0 1 0 0 empty timer empty 0 -9 0 10 -204786
+-258113 -1 0 1;
+#N canvas 610 39 701 525 timer 0;
+#X obj 224 38 line;
+#X obj 231 185 s timer;
+#X obj 277 116 s lose;
+#X obj 251 72 select 0;
+#X obj 218 -128 inlet;
+#X msg 220 -11 1 \, 0 \$1;
+#X obj 461 109 value time;
+#X obj 215 -71 expr time*(1.1-($f1*0.1));
+#X obj 468 14 r diff;
+#X obj 412 15 r lb1;
+#X msg 414 59 30000;
+#X msg 123 -2 0;
+#X obj 97 -52 r stop;
+#X obj 153 -126 r start;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 0 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 10 0 6 0;
+#X connect 11 0 0 0;
+#X connect 12 0 11 0;
+#X connect 13 0 7 0;
+#X restore -107 371 pd timer;
+#X obj 503 511 bng 35 250 50 0 open-diff empty Change_difficulty -50
+-12 0 14 -135154 -1 -1;
+#N canvas 573 35 343 103 diff 0;
+#X obj -212 12 hsl 300 30 10000 30000 0 0 diff user-diff empty -2 -8
+0 10 -262144 -258113 -1 0 1;
+#X text -203 16 Hard;
+#X text 51 16 Easy;
+#X obj -214 45 bng 35 250 50 0 close-diff click DONE! 45 14 0 16 -262144
+-260097 -258113;
+#X restore 28 418 pd diff;
+#N canvas 0 42 1311 718 diff-internal 0;
+#X obj 444 4 r open-diff;
+#X obj 570 -2 r close-diff;
+#X msg 453 240 \; pd-diff vis 1 \,;
+#X msg 587 45 \; pd-diff vis 0 \,;
+#X obj 456 129 delay 100;
+#X connect 0 0 4 0;
+#X connect 1 0 3 0;
+#X connect 4 0 2 0;
+#X restore 27 445 pd diff-internal;
+#X obj -48 380 pitch-match;
+#X obj 494 -48 r lb1;
+#X msg 500 -12 1;
+#X obj 287 192 bng 35 250 50 0 start empty Start -15 -12 0 14 -4034
+-1 -1;
+#X obj 430 194 bng 35 250 50 0 stop empty Stop -15 -12 0 14 -258113
+-1 -1;
+#X obj 635 70 r user-input;
+#X text 149 233 Time left!;
+#X text 573 232 Pitch;
+#X obj 215 293 cnv 15 38 30 empty empty Find\ the\ pitch\ that\ is\ playing\ :)
+26 10 0 18 -203904 -66577 0;
+#X connect 1 0 4 0;
+#X connect 3 0 6 0;
+#X connect 8 0 14 0;
+#X connect 19 0 20 0;
+#X connect 20 0 1 0;
+#X connect 20 0 3 0;
+#X connect 23 0 7 0;
+#X coords 0 -1 1 1 555 600 2 100 100;

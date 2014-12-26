@@ -1,0 +1,139 @@
+#N canvas 45 14 1311 690 10;
+#X obj 13 240 catch~ pulse;
+#N canvas 78 14 1278 690 pulses 0;
+#X restore -65 246 pd pulses;
+#X obj 1 4 nbx 5 14 -1e+37 1e+37 0 0 \$0-bf empty Base_Freq 55 8 0
+10 -261234 -1 -1 0 256 0;
+#X obj 1 24 nbx 5 14 -1e+37 1e+37 0 0 \$0-pf empty Pulse_Freq 55 8
+0 10 -261682 -1 -1 0 256 0;
+#X obj 1 43 nbx 5 14 -1e+37 1e+37 0 0 \$0-pd empty Pulse_Divider 55
+8 0 10 -262130 -1 -1 0 256 0;
+#X obj 1 68 nbx 5 14 0 1e+37 0 0 \$0-np empty Number_of_Pulses 55 8
+0 10 -262138 -1 -1 0 256 0;
+#X obj -44 -260 loadbang;
+#X obj -33 -231 s lb;
+#X msg 249 237 \; pd-pulses vis 1;
+#X obj 20 301 outlet~;
+#N canvas 0 27 1311 718 freq 0;
+#X obj 153 35 inlet;
+#X obj 126 160 phasor~;
+#X obj 102 211 send~ pphase;
+#X obj 108 100 sig~ 83;
+#X obj 395 184 pulse~ 999 5 20 0.5;
+#X obj 1217 669 send~ mphase-998;
+#X text 199 139 This is sent to all the pulse~ objects. It will generate
+a sine wave which is then scaled by the pulses. This controls the base
+frequency of the pulses. (now go to the pulse~ object on the right)
+;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X restore -267 -19 pd freq;
+#N canvas 0 0 450 300 pulse-gen 0;
+#X msg -81 467 \; pd-pulses obj 300 \$1 pulse~ \$2 \$3 \$4 \$5;
+#X msg -104 310 \; pd-pulses clear;
+#N canvas 0 0 1278 730 \$0-scaling 0;
+#X obj 157 33 inlet;
+#X obj 31 146 * 20;
+#X obj 125 144 f;
+#X obj 201 140 f;
+#X obj 277 134 random 28;
+#X obj 274 164 + 1;
+#X obj 806 178 random 1000;
+#X obj 812 211 / 1000;
+#X obj 200 257 pack f f f f f;
+#X text 4 9 Some very crude functions atm....;
+#X obj 198 284 outlet;
+#X obj 687 208 /;
+#X obj 692 159 swap 1;
+#X obj 158 64 t f f f b f;
+#X obj 697 131 t f b;
+#X obj 696 277 *;
+#X connect 0 0 13 0;
+#X connect 1 0 8 0;
+#X connect 2 0 8 1;
+#X connect 3 0 8 2;
+#X connect 4 0 5 0;
+#X connect 5 0 8 3;
+#X connect 6 0 7 0;
+#X connect 7 0 15 1;
+#X connect 8 0 10 0;
+#X connect 11 0 15 0;
+#X connect 12 0 11 0;
+#X connect 12 1 11 1;
+#X connect 13 0 1 0;
+#X connect 13 1 2 0;
+#X connect 13 2 3 0;
+#X connect 13 3 4 0;
+#X connect 13 4 14 0;
+#X connect 14 0 12 0;
+#X connect 14 1 6 0;
+#X connect 15 0 8 4;
+#X restore -135 378 pd \$0-scaling;
+#X obj -97 220 a-count;
+#X obj -6 268 r lb;
+#X msg 16 328 \; pd-pulses obj 500 100 edit \; pd-pulses loadbang bang
+\; pd dsp 0 \; pd dsp 1;
+#X obj 47 118 inlet;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 3 1 1 0;
+#X connect 3 2 5 0;
+#X connect 4 0 1 0;
+#X connect 6 0 3 0;
+#X restore -64 216 pd pulse-gen;
+#X text -572 -106 1 This patch was based around the idea of generating
+audio impulses sequentially from a master phasor. The pulses are then
+sent through various functions.;
+#X text -492 -42 2 The user can set the number of pulses. Their regularity
+and the base fequency of the pulses.;
+#X text -437 204 4 The pulses are generated here. The number of pulses
+is specified by the user. The pulses are each given a unique I.D \,
+a frequency (ascending integers (* by the base freq) \, a function
+(a combination of sine and cosine functions) and an amplitude (descending
+floats in the range of 1 - 0);
+#N canvas 55 42 1311 718 Mphasor 0;
+#X obj 150 88 inlet;
+#X obj 390 99 inlet;
+#X obj 225 241 sig~ 83;
+#X obj 360 293 sig~;
+#X obj 273 375 *~;
+#X obj 225 293 /~;
+#X obj 279 408 send~ mphase-0;
+#X obj 258 338 phasor~;
+#X text 469 246 1 The integer values of the amplitude of the phasor
+determine which pulses get played. An amplitude of 0-1 will only play
+the first pulse. 0-4 will play 1-2-3-4. If there are only 4 pulses
+and the amplitude is set to 8 then there will be a pause after the
+pulses have sounded.;
+#X text 466 320 2 The first inlet determines the frequency of the phasor.
+This is divided by the amplitude of the phasor. This means that the
+first inlet determines the speed of the individual pulses because their
+regularity is determined by the phasors amplitude. (now go to ../freq)
+;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 1;
+#X connect 3 0 5 1;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 7 0 4 0;
+#X restore -133 73 pd Mphasor;
+#X text 243 268 5 The user is also free to edit individual pulses.
+They can edit the frequency multiplier \, function and amplitude. (now
+go to Mphasor);
+#X obj 2 93 bng 35 250 50 0 empty empty View\ pulses 50 12 0 20 -204786
+-261682 -1;
+#X text -430 23 3 The pulse frequency and divider both control the
+master phasor. Master phasor freq = Pulse Freq/Pulse Divider. The divider
+also controls the amplitude of the master phasor. This will be explained
+at a later. stage;
+#X connect 0 0 9 0;
+#X connect 2 0 10 0;
+#X connect 3 0 15 0;
+#X connect 4 0 15 1;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 17 0 8 0;
+#X coords 0 -1 1 1 190 150 1 0 0;

@@ -1,0 +1,28 @@
+#N canvas 88 0 1278 730 10;
+#X floatatom 206 132 5 0 0 2 Pulse_Number - -;
+#X obj 140 182 f;
+#X floatatom 294 135 5 0 0 2 Rel_Freq - -;
+#X floatatom 360 134 5 0 0 2 Function - -;
+#X floatatom 442 134 5 0 0 2 Amp - -;
+#X obj 119 134 bng 15 250 50 0 empty empty Make_it_so -7 -10 0 10 -262144
+-1 -1;
+#X obj 277 274 pack f f f f f;
+#X obj 189 226 * 20;
+#X msg 261 420 \; pd-pulses editmode 1 \, mouse 300 \$1 0 0 \, cut
+\, editmode 0 \, obj 300 \$1 pulse~ \$2 \$3 \$4 \$5 \; pd-pulses loadbang
+bang;
+#X text 224 100 Edit individual pulses here;
+#X text 621 440 The first line will delete the existing pulse and replace
+it with a new one generated here. The second will generate a new pulse
+at the same position and the third line will send a bang to all the
+loadbang objects in the sub window. (fin);
+#X connect 0 0 1 1;
+#X connect 0 0 6 1;
+#X connect 1 0 7 0;
+#X connect 2 0 6 2;
+#X connect 3 0 6 3;
+#X connect 4 0 6 4;
+#X connect 5 0 1 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X coords 0 -1 1 1 400 60 2 100 100;

@@ -1,0 +1,294 @@
+#N canvas 0 42 1311 718 10;
+#X obj 296 -42 throw~ pulse;
+#N canvas 88 42 1278 726 routing-method 0;
+#X obj 424 -348 matrix~ 3 3 1;
+#X obj 408 -474 inlet~;
+#X obj 481 -481 inlet~;
+#X obj 546 -472 inlet~;
+#X obj 351 -216 outlet~;
+#X obj 442 -219 outlet~;
+#X obj 573 -225 outlet~;
+#N canvas 88 42 1278 726 methods 0;
+#X text 199 37 inlets = 1=sin \, 2=cos \, 3=square;
+#X obj 471 -27 inlet;
+#X obj 469 3 % 27;
+#X obj 472 28 + 1;
+#X msg 34 337 \; \$1-mat clear \, connect 0 0 \, connect 0 1 \, connect
+0 2;
+#X msg 32 366 \; \$1-mat clear \, connect 0 0 \, connect 0 1 \, connect
+1 2;
+#X msg 33 398 \; \$1-mat clear \, connect 0 0 \, connect 0 1 \, connect
+2 2;
+#X msg 92 429 \; \$1-mat clear \, connect 0 0 \, connect 2 1 \, connect
+0 2;
+#X msg 91 454 \; \$1-mat clear \, connect 0 0 \, connect 2 1 \, connect
+1 2;
+#X msg 95 482 \; \$1-mat clear \, connect 0 0 \, connect 2 1 \, connect
+2 2;
+#X msg 134 516 \; \$1-mat clear \, connect 0 0 \, connect 1 1 \, connect
+0 2;
+#X msg 138 541 \; \$1-mat clear \, connect 0 0 \, connect 1 1 \, connect
+1 2;
+#X msg 140 568 \; \$1-mat clear \, connect 0 0 \, connect 1 1 \, connect
+2 2;
+#X msg 505 243 \; \$1-mat clear \, connect 1 0 \, connect 0 1 \, connect
+0 2;
+#X msg 503 274 \; \$1-mat clear \, connect 1 0 \, connect 0 1 \, connect
+1 2;
+#X msg 502 303 \; \$1-mat clear \, connect 1 0 \, connect 0 1 \, connect
+2 2;
+#X msg 556 380 \; \$1-mat clear \, connect 1 0 \, connect 2 1 \, connect
+0 2;
+#X msg 574 416 \; \$1-mat clear \, connect 1 0 \, connect 2 1 \, connect
+1 2;
+#X msg 572 456 \; \$1-mat clear \, connect 1 0 \, connect 2 1 \, connect
+2 2;
+#X msg 593 499 \; \$1-mat clear \, connect 1 0 \, connect 1 1 \, connect
+0 2;
+#X msg 584 535 \; \$1-mat clear \, connect 1 0 \, connect 1 1 \, connect
+1 2;
+#X msg 585 568 \; \$1-mat clear \, connect 1 0 \, connect 1 1 \, connect
+2 2;
+#X msg 858 130 \; \$1-mat clear \, connect 2 0 \, connect 0 1 \, connect
+0 2;
+#X msg 853 163 \; \$1-mat clear \, connect 2 0 \, connect 0 1 \, connect
+1 2;
+#X msg 855 192 \; \$1-mat clear \, connect 2 0 \, connect 0 1 \, connect
+2 2;
+#X msg 869 223 \; \$1-mat clear \, connect 2 0 \, connect 2 1 \, connect
+0 2;
+#X msg 870 249 \; \$1-mat clear \, connect 2 0 \, connect 2 1 \, connect
+1 2;
+#X msg 873 276 \; \$1-mat clear \, connect 2 0 \, connect 2 1 \, connect
+2 2;
+#X msg 893 308 \; \$1-mat clear \, connect 2 0 \, connect 1 1 \, connect
+0 2;
+#X msg 899 335 \; \$1-mat clear \, connect 2 0 \, connect 1 1 \, connect
+1 2;
+#X msg 899 362 \; \$1-mat clear \, connect 2 0 \, connect 1 1 \, connect
+2 2;
+#X obj 469 170 route 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+20 21 22 23 24 25 26 27;
+#X obj 476 101 pack f f;
+#X obj 531 71 f \$1;
+#X obj 484 49 t f b;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 34 0;
+#X connect 31 0 4 0;
+#X connect 31 1 5 0;
+#X connect 31 2 6 0;
+#X connect 31 3 7 0;
+#X connect 31 4 8 0;
+#X connect 31 5 9 0;
+#X connect 31 6 10 0;
+#X connect 31 7 11 0;
+#X connect 31 8 12 0;
+#X connect 31 9 13 0;
+#X connect 31 10 14 0;
+#X connect 31 11 15 0;
+#X connect 31 12 16 0;
+#X connect 31 13 17 0;
+#X connect 31 14 18 0;
+#X connect 31 15 19 0;
+#X connect 31 16 20 0;
+#X connect 31 17 21 0;
+#X connect 31 18 22 0;
+#X connect 31 19 23 0;
+#X connect 31 20 24 0;
+#X connect 31 21 25 0;
+#X connect 31 22 26 0;
+#X connect 31 23 27 0;
+#X connect 31 24 28 0;
+#X connect 31 25 29 0;
+#X connect 31 26 30 0;
+#X connect 32 0 31 0;
+#X connect 33 0 32 1;
+#X connect 34 0 32 0;
+#X connect 34 1 33 0;
+#X restore 760 -283 pd methods;
+#X obj 728 -407 loadbang;
+#X obj 731 -325 f \$3;
+#X obj 340 -389 r \$1-mat;
+#X text 25 -345 The next stage is where the combinations of the various
+functions occur. This stage is about determining what the combinations
+are. In \$3 is sent to 'methods' which controls the matrix~ found here.
+Methods contains all the possible combinations. (now go to ../base-phasor)
+;
+#X connect 0 0 4 0;
+#X connect 0 1 5 0;
+#X connect 0 2 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 2;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 0 0;
+#X restore 356 -399 pd routing-method;
+#X obj 340 -164 *~;
+#X obj 365 -120 env-display;
+#N canvas 0 67 1366 701 base-phasor 0;
+#X obj 345 -293 inlet~;
+#X obj 428 -293 inlet~;
+#X obj 505 -272 inlet~;
+#X obj 247 68 outlet~;
+#X obj 204 -121 *~;
+#X obj 227 -49 *~;
+#X obj 178 -279 receive~ pphase;
+#X obj 173 -202 *~ \$2;
+#X obj 210 -84 *~;
+#X obj 182 -156 sin~;
+#X obj 249 -21 sin~;
+#X text 502 -178 The base-phasor is multiplied by \$2 and this is sent
+through a sine function (this was found to produce the most pleasing
+results). This output is then multiplied by the various routed signals.
+The output is then sent through a sine function \, again \, this was
+found to produce the most pleasing results \, but other functions were
+also interesting.;
+#X obj 555 -36 edit;
+#X text 509 -86 When the user clicks on 'view pulses' the edit windows
+opens. This means that they can modify the individual pulses. It is
+useful for selecting only the desired pulses generated. Go to the 'Edit'
+object on the right;
+#X connect 0 0 4 1;
+#X connect 1 0 8 1;
+#X connect 2 0 5 1;
+#X connect 4 0 8 0;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
+#X connect 8 0 5 0;
+#X connect 9 0 4 0;
+#X connect 10 0 3 0;
+#X restore 347 -345 pd base-phasor;
+#X text 467 -103 Used for debugging;
+#N canvas 0 0 1366 726 amp 0;
+#X obj 494 13 line~;
+#X obj 474 -54 f \$4;
+#X obj 453 -94 loadbang;
+#X msg 506 -22 0 \, \$1 100;
+#X obj 490 106 outlet~;
+#X connect 0 0 4 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X restore 446 -246 pd amp;
+#N canvas 749 48 1366 726 functions 0;
+#X obj 42 194 outlet~;
+#X obj 144 204 outlet~;
+#X obj 317 209 outlet~;
+#X obj 141 9 inlet~;
+#X obj 71 90 sin~;
+#X obj 142 50 expr~ if ($v1 >0 \, 1 \, 0);
+#X obj 107 102 cos~;
+#X obj 159 124 osc~;
+#N canvas 0 42 1366 726 surprise 0;
+#X obj 200 31 inlet~;
+#X obj 202 219 outlet~;
+#X obj 147 145 cos~;
+#X obj 204 152 osc~;
+#X obj 197 74 matrix~ 1 3 1;
+#X msg 49 69 clear \, connect 0 \$1;
+#X obj 57 42 random 3;
+#X obj 67 16 loadbang;
+#X obj 253 137 *~ \$2;
+#X text 399 134 The oscillators frequency is controlled either by the
+cos~ \, another osc~ or by the input multiplied by the second argument
+(frequency multiplier of base frequency) (now go to ../../routing method)
+;
+#X connect 0 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X connect 4 1 3 0;
+#X connect 4 2 8 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 1 0;
+#X restore 163 86 pd surprise;
+#X text 294 80 The signal is sent to the various functions. These are
+then routed to the base-freq and combined in various ways. (now go
+to surprise);
+#X connect 3 0 5 0;
+#X connect 3 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 8 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 7 0;
+#X restore 425 -488 pd functions;
+#N canvas 0 42 1311 718 transform 1;
+#X obj 539 -395 receive~ mphase-\$1;
+#X obj 554 -448 - 1;
+#X msg 545 -421 set mphase-\$1;
+#X obj 870 -302 send~ mphase-\$1;
+#X obj 655 -294 expr~ if ($v1 <= 1 \, $v1 \, 0) \; if ($v1 >=1 \, $v1
+\, 1);
+#X obj 820 -381 r \$0-subnum;
+#X obj 814 -346 -~;
+#X obj 499 -90 outlet~;
+#X obj 555 -472 f \$1;
+#X obj 442 -624 loadbang;
+#X obj 434 -578 t b b;
+#N canvas 742 197 450 300 arg1-test 0;
+#X obj 236 102 f \$1;
+#X obj 249 57 inlet;
+#X obj 210 268 s \$0-subnum;
+#X obj 238 156 != 1;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X restore 815 -403 pd arg1-test;
+#X text 241 -314 2 If the input signal is less than or equal to 1 it
+will output the signal (left outlet) otherwise a 0 will be output.
+The output signal is then sent through the various functions which
+are then applied to the base-freq signal.;
+#X text 981 -290 3 The right outlet outputs the opposite except using
+a 1 instead of a 0 The output is sent to the next pulse object. If
+a 0 was used then a discrepency would occur at the sudden change from
+0 to 1 in the signal.;
+#X text 955 -389 4 This is why \, before the expression \, the signal
+is subtracted by 1 \$0-subnum provides a 1 from 'pd-arg1-test' if it
+is NOT the first pulse.. The first pulse will receive the master phasor
+which does not need subracting by one. If the argument of the pulse
+object is 1 (i.e \, the first pulse) then the signal is subtracted
+by 0 (now go to ../functions);
+#X text 151 -425 1 All of the generated pulses are linked together
+via send and receives. Each pulse transforms the input signal. The
+Master-phasor is sent through send~ mphase-0. The remains of the phasor
+post-transform are sent to send~mphase-\$1 for the next pulse to read.
+This is why the receive~ is set to \$1-1.;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 4 0 7 0;
+#X connect 4 1 3 0;
+#X connect 5 0 6 1;
+#X connect 6 0 4 0;
+#X connect 8 0 1 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 10 1 11 0;
+#X restore 436 -538 pd transform;
+#X text 528 -543 1 The master phasor is sent to the first pulse which
+then performs a transform leaving only the amplitude 0-1 (if it is
+the first pulse). The 'remains' are then fed to the next pulse which
+will only use amplitude 2-3.;
+#X text 532 -480 2 The linear signal is applied to various functions
+(sine \, cos \, or an oscillater);
+#X text 504 -399 3 This determines which functions in which order are
+applied to the linear base-freq;
+#X text 515 -250 4 This controls the amplitude (now go to transform)
+;
+#X connect 1 0 4 0;
+#X connect 1 1 4 1;
+#X connect 1 2 4 2;
+#X connect 2 0 0 0;
+#X connect 4 0 2 0;
+#X connect 6 0 2 1;
+#X connect 7 0 1 0;
+#X connect 7 1 1 1;
+#X connect 7 2 1 2;
+#X connect 8 0 7 0;

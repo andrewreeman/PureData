@@ -1,0 +1,11 @@
+#N canvas 45 14 1278 690 10;
+#X declare -path test;
+#X obj 370 440 dac~;
+#X obj 453 346 write;
+#X obj 442 158 edit;
+#X obj 224 127 Pulses;
+#X obj 276 -85 declare -path test;
+#X connect 3 0 0 0;
+#X connect 3 0 0 1;
+#X connect 3 0 1 1;
+#X connect 3 0 1 0;

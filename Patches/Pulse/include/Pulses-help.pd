@@ -1,0 +1,20 @@
+#N canvas 88 0 1278 730 10;
+#X declare -path include;
+#X declare -path include;
+#X obj 293 158 pulses;
+#X obj 370 440 dac~;
+#X obj 288 -250 declare -path include;
+#X obj 379 347 write;
+#X obj 610 266 edit;
+#X text 298 -13 This is a pulse generator which will place the pulses
+through various functions. Base frequency controls the general pitch
+of most of the pulses (depending upon their function). Pulse frequency
+and Pulse Divider both control the amount of space between the pulse
+group. Pulse Frequency is divided by Pulse Divider. Number of pulses
+sets the ... number of pulses. Clicking on 'view pulses' will open
+up the edit dialogue box shown on the bottom right. This enables experimentation
+with the various functions and fine tuning of specific pulses.;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 0 0 3 1;
+#X connect 0 0 3 0;
