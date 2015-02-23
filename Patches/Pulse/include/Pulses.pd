@@ -1,15 +1,21 @@
 #N canvas 45 14 1311 690 10;
 #X obj 13 240 catch~ pulse;
-#N canvas 78 14 1278 690 pulses 0;
+#N canvas 45 14 1278 690 pulses 0;
+#X obj 300 20 pulse~ 1 1 21 0.886;
+#X obj 300 60 pulse~ 3 3 3 0.186333;
+#X obj 300 80 pulse~ 4 4 21 0.03075;
+#X obj 500 100 edit;
+#X obj 300 100 pulse~ 5 5 1 0.0444;
+#X obj 300 40 pulse~ 2 2.5 1 0.5;
 #X restore -65 246 pd pulses;
 #X obj 1 4 nbx 5 14 -1e+37 1e+37 0 0 \$0-bf empty Base_Freq 55 8 0
-10 -261234 -1 -1 0 256 0;
+10 -261234 -1 -1 200 256 0;
 #X obj 1 24 nbx 5 14 -1e+37 1e+37 0 0 \$0-pf empty Pulse_Freq 55 8
-0 10 -261682 -1 -1 0 256 0;
+0 10 -261682 -1 -1 2 256 0;
 #X obj 1 43 nbx 5 14 -1e+37 1e+37 0 0 \$0-pd empty Pulse_Divider 55
-8 0 10 -262130 -1 -1 0 256 0;
+8 0 10 -262130 -1 -1 2 256 0;
 #X obj 1 68 nbx 5 14 0 1e+37 0 0 \$0-np empty Number_of_Pulses 55 8
-0 10 -262138 -1 -1 0 256 0;
+0 10 -262138 -1 -1 5 256 0;
 #X obj -44 -260 loadbang;
 #X obj -33 -231 s lb;
 #X msg 249 237 \; pd-pulses vis 1;

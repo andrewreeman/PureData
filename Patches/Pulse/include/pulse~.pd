@@ -1,6 +1,6 @@
 #N canvas 0 42 1311 718 10;
 #X obj 296 -42 throw~ pulse;
-#N canvas 88 42 1278 726 routing-method 0;
+#N canvas 78 14 1278 690 routing-method 0;
 #X obj 424 -348 matrix~ 3 3 1;
 #X obj 408 -474 inlet~;
 #X obj 481 -481 inlet~;
@@ -127,7 +127,7 @@ Methods contains all the possible combinations. (now go to ../base-phasor)
 #X restore 356 -399 pd routing-method;
 #X obj 340 -164 *~;
 #X obj 365 -120 env-display;
-#N canvas 0 67 1366 701 base-phasor 0;
+#N canvas 45 31 1311 690 base-phasor 1;
 #X obj 345 -293 inlet~;
 #X obj 428 -293 inlet~;
 #X obj 505 -272 inlet~;
@@ -139,17 +139,17 @@ Methods contains all the possible combinations. (now go to ../base-phasor)
 #X obj 210 -84 *~;
 #X obj 182 -156 sin~;
 #X obj 249 -21 sin~;
-#X text 502 -178 The base-phasor is multiplied by \$2 and this is sent
-through a sine function (this was found to produce the most pleasing
-results). This output is then multiplied by the various routed signals.
-The output is then sent through a sine function \, again \, this was
-found to produce the most pleasing results \, but other functions were
-also interesting.;
 #X obj 555 -36 edit;
 #X text 509 -86 When the user clicks on 'view pulses' the edit windows
 opens. This means that they can modify the individual pulses. It is
 useful for selecting only the desired pulses generated. Go to the 'Edit'
 object on the right;
+#X text 502 -178 The base-phasor is multiplied by \$2 and this is sent
+through a sine function (this was found to produce the most pleasing
+results). This output is then multiplied by the various routed signals.
+The output is then sent through a sine function for windowing \, this
+was found to produce the most pleasing results \, but other functions
+were also interesting.;
 #X connect 0 0 4 1;
 #X connect 1 0 8 1;
 #X connect 2 0 5 1;
@@ -173,7 +173,7 @@ object on the right;
 #X connect 2 0 1 0;
 #X connect 3 0 0 0;
 #X restore 446 -246 pd amp;
-#N canvas 749 48 1366 726 functions 0;
+#N canvas 0 42 1311 718 functions 0;
 #X obj 42 194 outlet~;
 #X obj 144 204 outlet~;
 #X obj 317 209 outlet~;
@@ -182,7 +182,7 @@ object on the right;
 #X obj 142 50 expr~ if ($v1 >0 \, 1 \, 0);
 #X obj 107 102 cos~;
 #X obj 159 124 osc~;
-#N canvas 0 42 1366 726 surprise 0;
+#N canvas 0 42 1311 718 surprise 0;
 #X obj 200 31 inlet~;
 #X obj 202 219 outlet~;
 #X obj 147 145 cos~;
@@ -219,7 +219,7 @@ to surprise);
 #X connect 7 0 2 0;
 #X connect 8 0 7 0;
 #X restore 425 -488 pd functions;
-#N canvas 0 42 1311 718 transform 1;
+#N canvas 0 42 1311 718 transform 0;
 #X obj 539 -395 receive~ mphase-\$1;
 #X obj 554 -448 - 1;
 #X msg 545 -421 set mphase-\$1;
