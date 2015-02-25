@@ -36,13 +36,13 @@
 #X obj 839 314 routedSfRead 7;
 #X obj 839 333 routedSfRead 8;
 #X obj 839 355 routedSfRead 9;
-#X obj 839 160 routedSfRead 0;
+#X obj 832 150 routedSfRead 0;
 #X obj 285 149 t b s;
 #X obj 183 124 r init;
 #X obj 326 346 pack f s;
 #X obj 245 245 t f f;
 #X msg 212 466 \; routedSfRead-\$1.Play 1;
-#X msg 372 376 \; routedSfRead-\$1.Load \$2;
+#X msg 387 411 \; routedSfRead-\$1.Load \$2;
 #X text 388 51 A problem with the readsf~ object is that it must load
 a sound before playing it. It is safer to have multiple readsf~'s each
 playing in turn.;
@@ -93,6 +93,17 @@ before playing;
 #X obj 318 311 % 50;
 #X obj 317 282 + 25;
 #X msg 183 151 0;
+#N canvas 253 14 450 300 readers 0;
+#X obj 0 0 routedSfRead 50 /media/STORAGE/quicksounds/PVC-001.wav;
+#X restore 688 616 pd readers;
+#X msg 621 355 \; pd-readers clear;
+#X obj 592 505 pack f f s;
+#X msg 544 464 0;
+#X msg 585 462 50;
+#X msg 592 542 \; pd-readers obj 0 \$1 routedSfRead \$2 \$3 \; pd-readers
+loadbang;
+#X msg 614 461 symbol /media/STORAGE/quicksounds/PVC-001.wav;
+#X msg 323 574 \; routedSfRead-50.Play 1;
 #X connect 3 0 5 0;
 #X connect 4 0 6 0;
 #X connect 7 0 15 0;
@@ -107,6 +118,10 @@ before playing;
 #X connect 65 0 17 0;
 #X connect 66 0 65 0;
 #X connect 67 0 22 0;
+#X connect 70 0 73 0;
+#X connect 71 0 70 0;
+#X connect 72 0 70 1;
+#X connect 74 0 70 2;
 #X restore 475 283 pd audioReaders, f 17;
 #X obj 476 354 *~ 0.25;
 #X obj 566 361 *~ 0.25;
@@ -264,8 +279,14 @@ generate. max num of available sounds is numAudioBuffers/2;
 #X obj 1140 300 / 32;
 #X text 811 83 This is a trigger algorithm that simply triggers the
 'play sound' bang. Feel free to use your own.;
-#X text 618 507 TODO REDO WHOLE MECHANIC! LOAD ALL SOUNDS IN SF THEN
-CHOOSE RANDOM SF. ONLY A PROBLEM IF THERE IS TOO MANY SOUNDS;
+#X text 618 507 TODO REDO WHOLE MECHANIC! LOAD ALL SOUNDS IN TABLES.
+;
+#X msg 261 625 \; routedTableRead-\$1.Play 1;
+#X obj 544 605 catch~ routedTableRead-L;
+#X obj 545 650 dac~;
+#X obj 717 604 catch~ routedTableRead-R;
+#X obj 326 545 routedTableRead 0 /media/STORAGE/quicksounds/PVC-002.wav
+;
 #X connect 12 0 22 0;
 #X connect 13 0 2 0;
 #X connect 14 0 13 0;
@@ -283,3 +304,5 @@ CHOOSE RANDOM SF. ONLY A PROBLEM IF THERE IS TOO MANY SOUNDS;
 #X connect 24 0 22 1;
 #X connect 25 0 24 0;
 #X connect 26 0 15 0;
+#X connect 30 0 31 0;
+#X connect 32 0 31 1;
