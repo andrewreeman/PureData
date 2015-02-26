@@ -1,6 +1,6 @@
 #N canvas 55 24 1311 718 10;
 #X declare -path include;
-#X obj -10 145 cnv 15 1306 712 empty empty Random\ Sound\ File\ Gestures
+#X obj -8 145 cnv 15 1306 712 empty empty Random\ Sound\ File\ Gestures
 20 12 0 14 -262144 -66577 0;
 #X obj 284 304 cnv 15 300 283 empty empty Play\ sound 50 12 0 18 -261682
 -66577 0;
@@ -21,7 +21,7 @@
 -204786 -66577 0;
 #X obj 116 513 bng 64 250 50 0 \$0-initColl empty empty 17 7 0 10 -258113
 -1 -1;
-#N canvas 55 24 1311 718 logic 0;
+#N canvas 55 24 1311 718 logic 1;
 #X obj 478 555 dac~;
 #N canvas 45 14 1311 690 audioReaders 1;
 #X obj 829 88 cnv 15 282 248 empty empty Playback 20 12 0 14 -261234
@@ -43,30 +43,22 @@
 #X obj 659 405 outlet~;
 #X obj 889 405 outlet~;
 #X obj 296 115 inlet;
-#N canvas 153 14 444 300 tables 0;
-#X obj 0 0 routedTableRead 0 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob1.wav
+#N canvas 55 24 1311 718 tables 1;
+#X obj 567 389 routedTableRead 0 /media/STORAGE/quicksounds/PVC-000-B2.wav
 ;
-#X obj 0 35 routedTableRead 1 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob10.wav
+#X obj 0 35 routedTableRead 1 /media/STORAGE/quicksounds/PVC-000-Cs3.wav
 ;
-#X obj 0 70 routedTableRead 2 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob11.wav
+#X obj 0 70 routedTableRead 2 /media/STORAGE/quicksounds/PVC-000-D3.wav
 ;
-#X obj 0 105 routedTableRead 3 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob12.wav
+#X obj 0 105 routedTableRead 3 /media/STORAGE/quicksounds/PVC-000-E3.wav
 ;
-#X obj 0 140 routedTableRead 4 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob2.wav
+#X obj 0 140 routedTableRead 4 /media/STORAGE/quicksounds/PVC-000-Eb3.wav
 ;
-#X obj 0 175 routedTableRead 5 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob3.wav
+#X obj 0 175 routedTableRead 5 /media/STORAGE/quicksounds/PVC-000-old1.wav
 ;
-#X obj 0 210 routedTableRead 6 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob4.wav
+#X obj 0 210 routedTableRead 6 /media/STORAGE/quicksounds/PVC-001.wav
 ;
-#X obj 0 245 routedTableRead 7 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob5.wav
-;
-#X obj 0 280 routedTableRead 8 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob6.wav
-;
-#X obj 0 315 routedTableRead 9 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob7.wav
-;
-#X obj 0 350 routedTableRead 10 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob8.wav
-;
-#X obj 0 385 routedTableRead 11 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob9.wav
+#X obj 0 245 routedTableRead 7 /media/STORAGE/quicksounds/PVC-002.wav
 ;
 #X restore 663 123 pd tables;
 #X obj 296 194 cup;
@@ -127,7 +119,7 @@ loadbang;
 #X obj 437 208 r \$0-soundFileFolder;
 #X text 727 216 Read WAV files from folder and send to audio readers
 for constructing the audio tables.;
-#N canvas 841 150 450 300 readFilesFromFolder 0;
+#N canvas 831 140 450 300 readFilesFromFolder 1;
 #X obj 143 26 inlet;
 #X obj 143 245 outlet;
 #X msg 143 133 symbol \$1/*.wav;
@@ -149,22 +141,25 @@ for constructing the audio tables.;
 #X restore 94 279 pd logic;
 #X obj 908 344 tgl 59 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 55 24 1311 718 PlayShortGroup 0;
+#N canvas 55 24 1311 718 PlayShortGroup 1;
 #X obj 100 15 inlet;
-#X obj 126 417 outlet;
+#X obj 141 468 outlet;
 #X obj 171 316 delay;
-#X obj 168 243 + 20;
+#X obj 170 251 + 20;
 #X obj 106 358 t b b;
 #X obj 165 133 cup;
 #X obj 166 158 select 6;
-#X msg 179 92 0;
+#X msg 218 101 0;
 #X obj 167 220 random 500;
 #X obj 194 177 t b;
 #X obj 42 194 bng 8 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X text 267 154 Reset when N sounds played. N=inlet 1;
+#X text 254 158 Reset when N sounds played. N=inlet 1;
 #X obj 141 68 t b b f;
-#X obj 295 29 inlet;
+#X obj 303 26 inlet;
+#X text 149 15 Num sounds in group;
+#X text 363 27 Max delay between sounds;
+#X text 211 249 Offset by 20ms. Nothing shorter than this.;
 #X connect 0 0 12 0;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
