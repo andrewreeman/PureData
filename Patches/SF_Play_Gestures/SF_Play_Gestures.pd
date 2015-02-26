@@ -1,88 +1,114 @@
 #N canvas 55 24 1311 718 10;
 #X declare -path include;
-#X obj 288 80 cnv 15 300 283 empty empty Play\ sound 50 12 0 18 -261682
+#X obj -10 145 cnv 15 1306 712 empty empty Random\ Sound\ File\ Gestures
+20 12 0 14 -262144 -66577 0;
+#X obj 284 304 cnv 15 300 283 empty empty Play\ sound 50 12 0 18 -261682
 -66577 0;
-#X obj 98 79 cnv 15 190 98 empty empty Add\ Sound\ file\ folder 20
+#X obj 94 303 cnv 15 190 98 empty empty Add\ Sound\ file\ folder 20
 12 0 14 -204786 -66577 0;
-#X obj 310 137 bng 169 250 50 0 \$0-playFile empty empty 17 7 0 10
+#X obj 306 361 bng 169 250 50 0 \$0-playFile empty empty 17 7 0 10
 -4034 -260097 -1;
-#X obj 119 22 declare -path include;
-#X obj 121 102 bng 64 250 50 0 \$0-soundFileFolder empty empty 17 7
+#X obj 94 247 declare -path include;
+#X obj 117 326 bng 64 250 50 0 \$0-soundFileFolder empty empty 17 7
 0 10 -257985 -1 -1;
-#X obj 502 144 vsl 70 207 0.01 1 1 1 \$0-vol empty Volume 0 -9 0 10
--204786 -45076 -1 13130 1;
-#X obj 97 171 cnv 15 190 98 empty empty View\ file\ pool 20 12 0 14
+#X obj 498 368 vsl 70 207 0.01 1 1 1 \$0-vol empty Volume 0 -9 0 10
+-204786 -45076 -1 17030 1;
+#X obj 93 395 cnv 15 190 98 empty empty View\ file\ pool 20 12 0 14
 -204786 -66577 0;
-#X obj 120 194 bng 64 250 50 0 \$0-openEditor empty empty 17 7 0 10
+#X obj 116 418 bng 64 250 50 0 \$0-openEditor empty empty 17 7 0 10
 -257985 -1 -1;
-#X obj 97 266 cnv 15 190 98 empty empty Clear\ file\ pool 20 12 0 14
+#X obj 93 490 cnv 15 190 98 empty empty Clear\ file\ pool 20 12 0 14
 -204786 -66577 0;
-#X obj 120 289 bng 64 250 50 0 \$0-initColl empty empty 17 7 0 10 -258113
+#X obj 116 513 bng 64 250 50 0 \$0-initColl empty empty 17 7 0 10 -258113
 -1 -1;
-#N canvas 55 24 1311 718 logic 1;
+#N canvas 55 24 1311 718 logic 0;
 #X obj 478 555 dac~;
-#N canvas 45 14 1311 690 audioReaders 0;
-#X obj 285 711 outlet~;
-#X obj 495 720 outlet~;
-#X obj 296 86 inlet;
-#N canvas 193 14 444 300 tables 0;
-#X obj 0 0 routedTableRead 0 /media/STORAGE/quicksounds/PVC-000-B2.wav
+#N canvas 45 14 1311 690 audioReaders 1;
+#X obj 829 88 cnv 15 282 248 empty empty Playback 20 12 0 14 -261234
+-66577 0;
+#X obj 936 139 cnv 15 77 36 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 281 87 cnv 15 350 336 empty empty Table\ construction 20 12
+0 14 -208441 -66577 0;
+#X obj 369 290 cnv 15 75 30 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 54 87 cnv 15 226 127 empty empty Init\ and\ delete\ tables 20
+12 0 14 -257382 -66577 0;
+#X obj 630 337 cnv 15 485 84 empty empty Audio\ output 20 12 0 14 -262130
+-66577 0;
+#X obj 632 158 cnv 15 202 178 empty empty Viewing\ tables 20 12 0 14
+-203904 -66577 0;
+#X obj 632 88 cnv 15 198 73 empty empty Sound\ file\ tables 20 12 0
+14 -204786 -66577 0;
+#X obj 659 405 outlet~;
+#X obj 889 405 outlet~;
+#X obj 296 115 inlet;
+#N canvas 153 14 444 300 tables 0;
+#X obj 0 0 routedTableRead 0 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob1.wav
 ;
-#X obj 0 35 routedTableRead 1 /media/STORAGE/quicksounds/PVC-000-Cs3.wav
+#X obj 0 35 routedTableRead 1 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob10.wav
 ;
-#X obj 0 70 routedTableRead 2 /media/STORAGE/quicksounds/PVC-000-D3.wav
+#X obj 0 70 routedTableRead 2 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob11.wav
 ;
-#X obj 0 105 routedTableRead 3 /media/STORAGE/quicksounds/PVC-000-E3.wav
+#X obj 0 105 routedTableRead 3 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob12.wav
 ;
-#X obj 0 140 routedTableRead 4 /media/STORAGE/quicksounds/PVC-000-Eb3.wav
+#X obj 0 140 routedTableRead 4 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob2.wav
 ;
-#X obj 0 175 routedTableRead 5 /media/STORAGE/quicksounds/PVC-000-old1.wav
+#X obj 0 175 routedTableRead 5 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob3.wav
 ;
-#X obj 0 210 routedTableRead 6 /media/STORAGE/quicksounds/PVC-001.wav
+#X obj 0 210 routedTableRead 6 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob4.wav
 ;
-#X obj 0 245 routedTableRead 7 /media/STORAGE/quicksounds/PVC-002.wav
+#X obj 0 245 routedTableRead 7 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob5.wav
 ;
-#X restore 647 374 pd tables;
-#X obj 270 206 cup;
-#X obj 146 73 r init;
-#X msg 152 151 0;
-#X obj 295 129 t b s;
-#X obj 232 346 pack f f s;
-#X obj 237 264 t f f;
-#X text 317 347 1 Y pos. 2 ID. 3 File name;
-#X msg 228 387 \; pd-tables obj 0 \$1 routedTableRead \$2 \$3 \; pd-tables
+#X obj 0 280 routedTableRead 8 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob6.wav
+;
+#X obj 0 315 routedTableRead 9 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob7.wav
+;
+#X obj 0 350 routedTableRead 10 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob8.wav
+;
+#X obj 0 385 routedTableRead 11 /media/STORAGE/Compositions/Miniature-1/Sounds/attacks/cob/cob9.wav
+;
+#X restore 663 123 pd tables;
+#X obj 296 194 cup;
+#X obj 217 114 r init;
+#X msg 226 160 0;
+#X obj 296 161 t b s;
+#X obj 296 334 pack f f s;
+#X obj 296 252 t f f;
+#X text 379 334 1 Y pos. 2 ID. 3 File name;
+#X msg 296 375 \; pd-tables obj 0 \$1 routedTableRead \$2 \$3 \; pd-tables
 loadbang;
-#X obj 344 680 catch~ routedTableRead-L;
-#X obj 497 680 catch~ routedTableRead-R;
-#X obj 807 265 r \$0-playFile;
-#X obj 189 309 * 35;
-#X obj 38 98 r \$0-initColl;
-#X msg 30 168 \; pd-tables clear;
-#X obj 812 433 random;
-#X msg 799 508 \; routedTableRead-\$1.Play 1;
-#X obj 421 541 r \$0-openEditor;
-#X msg 424 576 \; pd-tables vis 1;
-#X obj 332 301 s numFiles;
-#X obj 847 361 r numFiles;
-#X connect 2 0 7 0;
-#X connect 4 0 9 0;
-#X connect 5 0 6 0;
-#X connect 6 0 4 0;
-#X connect 7 0 4 0;
-#X connect 7 1 8 2;
-#X connect 8 0 11 0;
-#X connect 9 0 15 0;
-#X connect 9 1 8 1;
-#X connect 9 1 22 0;
-#X connect 12 0 0 0;
-#X connect 13 0 1 0;
-#X connect 14 0 18 0;
-#X connect 15 0 8 0;
-#X connect 16 0 17 0;
-#X connect 16 0 6 0;
-#X connect 18 0 19 0;
-#X connect 20 0 21 0;
-#X connect 23 0 18 1;
+#X obj 659 369 catch~ routedTableRead-L;
+#X obj 889 365 catch~ routedTableRead-R;
+#X obj 860 120 r \$0-playFile;
+#X obj 296 297 * 35;
+#X obj 86 114 r \$0-initColl;
+#X msg 79 160 \; pd-tables clear;
+#X obj 907 219 random;
+#X msg 902 260 \; routedTableRead-\$1.Play 1;
+#X obj 652 193 r \$0-openEditor;
+#X msg 655 228 \; pd-tables vis 1;
+#X obj 375 297 s numFiles;
+#X obj 942 147 r numFiles;
+#X connect 10 0 15 0;
+#X connect 12 0 17 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 15 0 12 0;
+#X connect 15 1 16 2;
+#X connect 16 0 19 0;
+#X connect 17 0 23 0;
+#X connect 17 1 16 1;
+#X connect 17 1 30 0;
+#X connect 20 0 8 0;
+#X connect 21 0 9 0;
+#X connect 22 0 26 0;
+#X connect 23 0 16 0;
+#X connect 24 0 25 0;
+#X connect 24 0 14 0;
+#X connect 26 0 27 0;
+#X connect 28 0 29 0;
+#X connect 31 0 26 1;
 #X restore 448 374 pd audioReaders, f 17;
 #X obj 449 445 *~ 0.25;
 #X obj 539 452 *~ 0.25;
@@ -99,27 +125,29 @@ loadbang;
 #X connect 4 2 1 0;
 #X restore 490 126 pd init;
 #X obj 437 208 r \$0-soundFileFolder;
-#X msg 424 274 symbol \$1/*.wav;
-#X obj 450 304 hcs/folder_list;
-#X obj 423 244 tof/folderpanel;
+#X text 727 216 Read WAV files from folder and send to audio readers
+for constructing the audio tables.;
+#N canvas 841 150 450 300 readFilesFromFolder 0;
+#X obj 143 26 inlet;
+#X obj 143 245 outlet;
+#X msg 143 133 symbol \$1/*.wav;
+#X obj 143 163 hcs/folder_list;
+#X obj 143 103 tof/folderpanel;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X restore 435 273 pd readFilesFromFolder;
 #X connect 1 0 2 0;
 #X connect 1 1 3 0;
 #X connect 2 0 0 0;
 #X connect 3 0 0 1;
 #X connect 4 0 2 1;
 #X connect 4 0 3 1;
-#X connect 6 0 9 0;
-#X connect 7 0 8 0;
+#X connect 6 0 8 0;
 #X connect 8 0 1 0;
-#X connect 9 0 7 0;
-#X restore 184 53 pd logic;
-#N canvas 423 174 450 300 TODO 0;
-#X text 91 178 TODO init readers with audio files;
-#X text 85 140 TODO set number of audio buffers....algorhytmically
-generate. max num of available sounds is numAudioBuffers/2;
-#X text 84 114 TODO fadeout when start audio;
-#X restore 116 55 pd TODO;
-#X obj 912 120 tgl 59 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 94 279 pd logic;
+#X obj 908 344 tgl 59 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #N canvas 55 24 1311 718 PlayShortGroup 0;
 #X obj 100 15 inlet;
@@ -152,39 +180,34 @@ generate. max num of available sounds is numAudioBuffers/2;
 #X connect 12 1 7 0;
 #X connect 12 2 6 1;
 #X connect 13 0 8 1;
-#X restore 972 403 pd PlayShortGroup;
-#X floatatom 970 355 5 0 50 0 Numsounds - -, f 5;
-#X floatatom 1049 325 5 0 0 0 Maxdelay - -, f 5;
-#X obj 1018 202 r init;
-#X msg 1001 287 set 15;
-#X msg 1049 285 25;
-#X obj 891 263 random 3;
-#X obj 947 314 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore 908 627 pd PlayShortGroup;
+#X floatatom 906 578 5 0 50 0 Numsounds - -, f 5;
+#X floatatom 1065 572 5 0 0 0 Maxdelay - -, f 5;
+#X obj 908 538 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 902 291 select 0;
-#X obj 877 216 metro 125;
-#X msg 1119 182 1000;
-#X floatatom 960 203 5 0 0 0 - - -, f 5;
-#X obj 992 160 / 16;
-#X obj 1140 300 / 32;
-#X text 811 83 This is a trigger algorithm that simply triggers the
+#X obj 908 448 metro 125;
+#X msg 1105 356 1000;
+#X floatatom 964 424 5 0 0 0 - - -, f 5;
+#X text 807 307 This is a trigger algorithm that simply triggers the
 'play sound' bang. Feel free to use your own.;
-#X text 618 507 TODO REDO WHOLE MECHANIC! LOAD ALL SOUNDS IN TABLES.
-;
-#X connect 12 0 22 0;
-#X connect 13 0 2 0;
+#X obj 1058 397 / 8;
+#X obj 1167 416 / 16;
+#X obj 908 487 random 100;
+#X obj 908 515 moses 70;
+#X text 229 243 Have the 'include' folder in the same directory as
+this patch;
+#X obj 1108 336 r init;
+#X connect 12 0 17 0;
+#X connect 13 0 3 0;
 #X connect 14 0 13 0;
 #X connect 15 0 13 1;
-#X connect 16 0 17 0;
-#X connect 16 0 18 0;
-#X connect 17 0 14 0;
-#X connect 18 0 15 0;
-#X connect 19 0 21 0;
-#X connect 20 0 14 0;
-#X connect 21 1 20 0;
-#X connect 22 0 19 0;
-#X connect 23 0 25 0;
-#X connect 23 0 26 0;
-#X connect 24 0 22 1;
-#X connect 25 0 24 0;
-#X connect 26 0 15 0;
+#X connect 16 0 14 0;
+#X connect 17 0 23 0;
+#X connect 18 0 21 0;
+#X connect 18 0 22 0;
+#X connect 19 0 17 1;
+#X connect 21 0 19 0;
+#X connect 22 0 15 0;
+#X connect 23 0 24 0;
+#X connect 24 1 16 0;
+#X connect 26 0 18 0;
