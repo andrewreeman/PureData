@@ -1,0 +1,35 @@
+TIME f/time
+
+STOP t/stop
+PLAY t/play
+PAUSE t/pause
+
+GOTO_MARKER i/marker
+GOTO_REGION i/region
+
+LAST_MARKER_NAME s/lastmarker/name
+LAST_REGION_NUMBER s/lastregion/number/str
+
+
+PLAY_RATE f/playrate/raw
+
+TRACK_VOLUME f/track/@/volume/db
+
+TRACK_PAN n/track/@/pan
+
+TRACK_SEND_VOLUME n/track/@/send/@/volume
+TRACK_SEND_PAN n/track/@/send/@/pan
+
+FX_BYPASS b/track/@/fx/@/bypass 
+
+FX_WETDRY n/track/@/fx/@/wetdry
+FX_PARAM_VALUE n/track/@/fx/@/fxparam/@/value
+
+ACTION i/action s/action/str t/action/@ f/action/@/cc
+
+DEVICE_TRACK_COUNT i/device/track/count t/device/track/count/@
+DEVICE_SEND_COUNT i/device/send/count t/device/send/count/@
+DEVICE_FX_COUNT i/device/fx/count t/device/fx/count/@
+DEVICE_FX_PARAM_COUNT i/device/fxparam/count t/device/fxparam/count/@
+DEVICE_MARKER_COUNT i/device/marker/count t/device/marker/count/@
+

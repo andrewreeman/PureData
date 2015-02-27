@@ -1,0 +1,58 @@
+#N canvas 55 24 1311 718 10;
+#X obj 372 -196 cnv 15 282 241 empty empty OSC\ Connections:\ Connect\ first!
+20 12 0 14 -262130 -66577 0;
+#X obj 465 -131 cnv 15 160 40 empty empty empty 20 12 0 14 -258113
+-66577 0;
+#X obj 301 43 cnv 15 348 211 empty empty Play\ random\ region 20 12
+0 14 -261234 -66577 0;
+#X obj 649 -197 cnv 15 435 283 empty empty Stop\ when\ end\ of\ region
+20 12 0 14 -204800 -66577 0;
+#X msg 462 -153 disconnect;
+#X obj 672 -170 mrpeach/udpreceive 9000;
+#X obj 672 -146 mrpeach/unpackOSC;
+#X obj 462 -49 mrpeach/packOSC;
+#X obj 421 -14 mrpeach/udpsend;
+#X msg 470 -121 connect localhost 8000;
+#X obj 488 52 bng 47 250 50 0 empty empty empty 17 7 0 10 -204786 -1
+-1;
+#X obj 313 96 t b b;
+#X msg 313 186 send /play;
+#X msg 672 31 send /stop;
+#X obj 404 123 random 3;
+#X obj 404 153 + 1;
+#X msg 404 186 send /region \$1;
+#X obj 672 61 s OSC;
+#X obj 462 -85 r OSC;
+#X obj 404 227 s OSC;
+#X obj 313 227 s OSC;
+#X obj 672 -119 mrpeach/routeOSC /lastregion;
+#X obj 672 -96 mrpeach/routeOSC /number/str;
+#X obj 672 3 select;
+#X obj 722 -44 symbol;
+#X obj 672 -70 t s b;
+#X obj 672 -44 symbol;
+#X text 730 -7 /lastregion sends an empty string if end of region.
+So if empty symbol then stop;
+#X obj 313 137 del 5;
+#X connect 4 0 8 0;
+#X connect 5 0 6 0;
+#X connect 6 0 21 0;
+#X connect 7 0 8 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 28 0;
+#X connect 11 1 14 0;
+#X connect 12 0 20 0;
+#X connect 13 0 17 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 0;
+#X connect 18 0 7 0;
+#X connect 21 0 22 0;
+#X connect 22 0 25 0;
+#X connect 23 0 13 0;
+#X connect 24 0 23 1;
+#X connect 25 0 26 0;
+#X connect 25 1 24 0;
+#X connect 26 0 23 0;
+#X connect 28 0 12 0;
